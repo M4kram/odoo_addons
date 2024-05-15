@@ -1,0 +1,125 @@
+<odoo>
+
+    <record id="department_tree_view" model="ir.ui.view">
+        <field name="name">Department Tree View</field>
+        <field name="model">department</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id" string="#"/>
+                <field name="name" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="department_form_view" model="ir.ui.view">
+        <field name="name">Department Form View</field>
+        <field name="model">department</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="employees_count"/>
+                        </group>
+                    </group>
+
+                    <notebook>
+                        <page string="Les employés">
+                            <field name="employee_ids">
+                                <tree create="0" delete="0">
+                                    <field name="first_name" />
+                                    <field name="last_name" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Rapport -->
+    <template id="department_report_template">
+        <t t-call="web.basic_layout">
+            <style>
+                * {
+                    margin: 0;
+                    padding: 0;
+                    font-family: sans-serif;
+                    box-sizing: border-box;
+                }
+
+                .page {
+                    position: relative;
+                    page-break-before: always;
+                    height: 1050px;
+                }
+
+                h1 {
+                    font-size: 56px;
+                    margin-bottom: 40px;
+                }
+
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                }
+
+                td, th {
+                    border: 1px solid #333;
+                    padding: 2px 6px;
+                    text-align: left;
+                }
+
+                th {
+                    padding: 6px;
+                }
+
+                .float {
+                    text-align: right;
+                }
+
+                .pagination {
+                    position: absolute;
+                    bottom: 0;
+                }
+            </style>
+            <t t-foreach="range(len(docs))" t-as="page">
+                <t t-set="department_total" t-value="sum(employee.salary for employee in docs[page].employee_ids if employee.state == 'in')"/>
+                <div class="page">
+
+                    <h1 t-field="docs[page].name"/>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prénom</th>
+                                <th>Salaire</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="docs[page].employee_ids" t-as="employee">
+                                <tr t-if="employee.state == 'in'">
+                                    <td><span t-esc="employee.last_name"/></td>
+                                    <td><span t-esc="employee.first_name"/></td>
+                                    <td class="float"><span t-esc="employee.salary" t-options="{'widget': 'float', 'precision': 2}"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="2">Total</th>
+                                <th class="float" t-esc="department_total" t-options="{'widget': 'float', 'precision': 2}"/>
+                            </tr>
+                        </tfoot>
+                    </table>
+
+                    <p class="pagination"><span t-esc="page + 1"/> / <span t-esc="len(docs)"/></p>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

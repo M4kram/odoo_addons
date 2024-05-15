@@ -1,0 +1,51 @@
+<odoo>
+    <record id="employee_wizard_action" model="ir.actions.act_window">
+        <field name="name">Wizard Création Employée</field>
+        <field name="res_model">employee.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <menuitem
+        id="employee_wizard_menu"
+        name="Wizard Création Employée"
+        parent="hr_management_parent_menu"
+        action="employee_wizard_action"
+        sequence="30"
+    />
+
+    <record id="employee_wizard_form_view" model="ir.ui.view">
+        <field name="name">Employee Wizard Form View</field>
+        <field name="model">employee.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="number"/>
+                            <field name="first_name"/>
+                            <field name="last_name" required="1"/>
+                        </group>
+                        <group>
+                            <field name="salary"/>
+                            <field name="department_id"/>
+                        </group>
+                    </group>
+                </sheet>
+                <footer>
+                    <button
+                        name="button_create_employee"
+                        type="object"
+                        string="Créer"
+                        class="btn-danger"
+                    />
+                    <button
+                        special="cancel"
+                        string="Annuler"
+                        class="btn-secondary"
+                    />
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>

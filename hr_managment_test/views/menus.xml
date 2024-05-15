@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem
+        id="hr_management_parent_menu"
+        name="RH Management"
+    />
+
+    <menuitem
+        id="employee_menu"
+        parent="hr_management_parent_menu"
+        name="Employés"
+        action="action_employee"
+        sequence="20"
+    />
+
+    <menuitem
+        id="department_menu"
+        parent="hr_management_parent_menu"
+        name="Departements"
+        action="action_department"
+        sequence="10"
+    />
+
+    <menuitem
+        id="skill_menu"
+        parent="hr_management_parent_menu"
+        name="Compétences"
+        action="action_skill"
+        sequence="10"
+    />
+
+</odoo>

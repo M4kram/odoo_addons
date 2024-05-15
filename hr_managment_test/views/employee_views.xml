@@ -1,0 +1,76 @@
+<!--<?xml version="1.0" encoding="UTF-8" ?>-->
+<odoo>
+    <record id="employee_tree_view" model="ir.ui.view">
+        <field name="name">Employee Tree View</field>
+        <field name="model">employee</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <button name="button_test" type="object"
+                            string="Testing" class="btn-primary"
+                    />
+                </header>
+                <field name="id" string="#"/>
+                <field name="first_name" optional="show"/>
+                <field name="last_name" optional="hide"/>
+                <field name="salary"/>
+                <field name="number"/>
+                <field name="department_id"/>
+                <field name="state" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="employee_form_view" model="ir.ui.view">
+        <field name="name">Employee Form View</field>
+        <field name="model">employee</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="state" widget="statusbar" options="{'clickable': '1'}" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="first_name"/>
+                            <field name="salary"/>
+                            <field name="number"/>
+                            <!-- <field name="state" widget="radio"/>-->
+                        </group>
+                        <group>
+                            <field name="last_name" string="Nom *"/>
+                            <field name="department_id"/>
+                            <field name="skill_ids" widget="many2many_tags"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <template id="employee_report_template">
+        <t t-call="web.basic_layout">
+            <style>
+                * {
+                    font-family: sans-serif;
+                }
+                .page {
+                    page-break-before: always;
+                }
+            </style>
+            <t t-set="total_salary" t-value="sum(employee.salary for employee in docs)"/>
+            <t t-foreach="range(len(docs))" t-as="page">
+                <div class="page">
+                    <p><span t-esc="page + 1"/> / <span t-esc="len(docs)"/></p>
+                    <h1 style="color: blue;">Fiche Info</h1>
+                    <h2><span t-field="docs[page].last_name"/> <span t-field="docs[page].first_name"/></h2>
+                    <p t-field="docs[page].salary" t-options="{'widget': 'float', 'precision': 2}"/>
+                    <!-- <p t-esc="int(employee.salary)"/>-->
+                    <t t-if="page + 1 == len(docs)">
+                        <p>Total Salaires: <span t-esc="total_salary" t-options="{'widget': 'float', 'precision': 2}"/></p>
+                    </t>
+                </div>
+            </t>
+        </t>
+    </template>
+</odoo>

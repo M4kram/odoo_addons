@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="action_employee" model="ir.actions.act_window">
+        <field name="name">Employés</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">employee</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_department" model="ir.actions.act_window">
+        <field name="name">Départements</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">department</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_skill" model="ir.actions.act_window">
+        <field name="name">Compétence</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">skill</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="employee_report" model="ir.actions.report">
+        <field name="name">Rapport</field>
+        <field name="model">employee</field>
+        <field name="binding_model_id" ref="hr_managment_test.model_employee"/>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_managment_test.employee_report_template</field>
+        <field name="print_report_name">"Fiche Info - %s %s" % (object.last_name, object.first_name)</field>
+        <field name="binding_view_types">tree</field>
+    </record>
+
+    <record id="department_report" model="ir.actions.report">
+        <field name="name">Rapport</field>
+
+        <field name="model">department</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_managment_test.department_report_template</field>
+
+        <field name="print_report_name">"%s - Employés" % (object.name)</field>
+
+        <field name="binding_model_id" ref="hr_managment_test.model_department"/>
+        <field name="binding_view_types">tree,form</field>
+    </record>
+</odoo>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <record id="action_etudiant" model="ir.actions.act_window">
+        <field name="name">Etudiants</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">etudiant</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_classe" model="ir.actions.act_window">
+        <field name="name">Classes</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">classe</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_formateur" model="ir.actions.act_window">
+        <field name="name">Formateurs</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">formateur</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_filiere" model="ir.actions.act_window">
+        <field name="name">Filiéres</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">filiere</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_fin_service_wizard" model="ir.actions.act_window">
+        <field name="name">Assistant de fin de service</field>
+        <field name="res_model">fin.service.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="model_fin_service_wizard"/>
+    </record>
+
+    <!-- <record id="department_report" model="ir.actions.report">
+        <field name="name">Rapport</field>
+
+        <field name="model">department</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">hr_managment_test.department_report_template</field>
+
+        <field name="print_report_name">"%s - Employés" % (object.name)</field>
+
+        <field name="binding_model_id" ref="hr_managment_test.model_department"/>
+        <field name="binding_view_types">tree,form</field>
+    </record> -->
+</odoo>

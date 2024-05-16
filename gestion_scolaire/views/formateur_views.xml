@@ -1,0 +1,43 @@
+<odoo>
+    <record id="formateur_tree_view" model="ir.ui.view">
+        <field name="name">Formateurs</field>
+        <field name="model">formateur</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="id" string="#"/>
+                <field name="prenom" optional="show"/>
+                <field name="nom" optional="hide"/>
+                <field name="date_embauche"/>
+                <field name="date_fin_service"/>
+                <field name="experience"/>
+                <field name="classes_ids" />
+                <field name="filieres_ids" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="formateur_form_view" model="ir.ui.view">
+        <field name="name">Formateurs</field>
+        <field name="model">formateur</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="prenom" string="Prènom *"/>
+                            <field name="nom"/>
+                            <field name="date_embauche"/>
+                            <field name="date_fin_service"/>
+                            <field name="experience"/>
+                        </group>
+                        <group>
+                            <field name="classes_ids"/>
+                            <field name="filieres_ids" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

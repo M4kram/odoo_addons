@@ -1,0 +1,40 @@
+<odoo>
+    <record id="filiere_tree_view" model="ir.ui.view">
+        <field name="name">Filiéres</field>
+        <field name="model">filiere</field>
+        <field name="arch" type="xml">
+            <tree>
+                <header>
+                    <button name="button_test" type="object"
+                            string="Testing" class="btn-primary"
+                    />
+                </header>
+                <field name="id" string="#"/>
+                <field name="nom" optional="show"/>
+                <field name="code" optional="hide"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="filiere_form_view" model="ir.ui.view">
+        <field name="name">Filiéres</field>
+        <field name="model">filiere</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="code" widget="statusbar" options="{'clickable': '1'}" />
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="nom"/>
+                            <field name="code"/>
+                            <!-- <field name="state" widget="radio"/>-->
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_etudiant,etudiant,model_etudiant,,1,1,1,1
+access_classe,classe,model_classe,,1,1,1,1
+access_formateur,formateur,model_formateur,,1,1,1,1
+access_filiere,filiere,model_filiere,,1,1,1,1
+access_fin_service,fin.service.wizard,model_fin_service_wizard,,1,1,1,1

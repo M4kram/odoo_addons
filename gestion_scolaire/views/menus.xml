@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+
+    <menuitem
+        id="hr_management_parent_menu"
+        name="Gestion Scolaire"
+    />
+
+    <menuitem
+        id="etudiant_menu"
+        parent="hr_management_parent_menu"
+        name="Etudiants"
+        action="action_etudiant"
+        sequence="20"
+    />
+
+    <menuitem
+        id="classe_menu"
+        parent="hr_management_parent_menu"
+        name="Classes"
+        action="action_classe"
+        sequence="10"
+    />
+
+    <menuitem
+        id="formateur_menu"
+        parent="hr_management_parent_menu"
+        name="Formateurs"
+        action="action_formateur"
+        sequence="10"
+    />
+
+    <menuitem
+        id="filiere_menu"
+        parent="hr_management_parent_menu"
+        name="Filiéres"
+        action="action_filiere"
+        sequence="10"
+    />
+        <!-- Déclaration du menu -->
+    <menuitem id="menu_fin_service_wizard" name="Assistant de fin de service" parent="hr_management_parent_menu"/>
+    <menuitem id="submenu_fin_service_wizard" name="Fin de service" parent="menu_fin_service_wizard" action="action_fin_service_wizard"/>
+
+
+</odoo>

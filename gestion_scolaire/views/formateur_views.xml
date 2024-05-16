@@ -10,8 +10,8 @@
                 <field name="date_embauche"/>
                 <field name="date_fin_service"/>
                 <field name="experience"/>
-                <field name="classes_ids" />
-                <field name="filieres_ids" />
+                <field name="classes_ids"/>
+                <field name="filieres_ids"/>
             </tree>
         </field>
     </record>
@@ -23,21 +23,21 @@
             <form>
                 <sheet>
                     <group>
-                        <group>
+                        <group string="Informations personnelles">
                             <field name="prenom" string="Prènom *"/>
                             <field name="nom"/>
-                            <field name="date_embauche"/>
-                            <field name="date_fin_service"/>
-                            <field name="experience"/>
                         </group>
-                        <group>
-                            <field name="classes_ids"/>
-                            <field name="filieres_ids" />
+                        <newline/>
+                        <group string="Informations professionalles">
+                            <field name="classes_ids" widget="many2many_tags"/>
+                            <field name="filieres_ids" widget="many2many_checkboxes"/>
+                            <field name="date_embauche"/>
+                            <field name="date_fin_service" readonly="1"/>
+                            <field name="experience"/>
                         </group>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
-
 </odoo>

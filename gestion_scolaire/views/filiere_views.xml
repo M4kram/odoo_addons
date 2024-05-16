@@ -3,12 +3,7 @@
         <field name="name">Filiéres</field>
         <field name="model">filiere</field>
         <field name="arch" type="xml">
-            <tree>
-                <header>
-                    <button name="button_test" type="object"
-                            string="Testing" class="btn-primary"
-                    />
-                </header>
+            <tree editable="top">
                 <field name="id" string="#"/>
                 <field name="nom" optional="show"/>
                 <field name="code" optional="hide"/>
@@ -21,20 +16,15 @@
         <field name="model">filiere</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-                    <field name="code" widget="statusbar" options="{'clickable': '1'}" />
-                </header>
                 <sheet>
                     <group>
                         <group>
                             <field name="nom"/>
                             <field name="code"/>
-                            <!-- <field name="state" widget="radio"/>-->
                         </group>
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
-
 </odoo>

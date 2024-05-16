@@ -23,10 +23,10 @@ class Employee(models.Model):
     # )
 
     def button_test(self):
-        # # unlink
-        # for employee in self:
-        #     if employee.salary < 2000:
-        #         employee.unlink()
+        # unlink
+        for employee in self:
+            if employee.salary < 2000:
+                employee.unlink()
 
         # # filtered
         # to_delete = self.filtered(lambda e: e.salary < 4000 and e.department_id.name == "Finance")

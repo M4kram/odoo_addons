@@ -1,30 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
-
     <record id="action_etudiant" model="ir.actions.act_window">
         <field name="name">Etudiants</field>
-        <field name="type">ir.actions.act_window</field>
         <field name="res_model">etudiant</field>
         <field name="view_mode">tree,form</field>
+        <field name="context">
+            {
+                "search_default_filter_est_inscrit": True,
+                "search_default_group_by_classe_id": True,
+            }
+        </field> 
     </record>
 
     <record id="action_classe" model="ir.actions.act_window">
         <field name="name">Classes</field>
-        <field name="type">ir.actions.act_window</field>
         <field name="res_model">classe</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <record id="action_formateur" model="ir.actions.act_window">
         <field name="name">Formateurs</field>
-        <field name="type">ir.actions.act_window</field>
         <field name="res_model">formateur</field>
         <field name="view_mode">tree,form</field>
     </record>
 
     <record id="action_filiere" model="ir.actions.act_window">
-        <field name="name">Filiéres</field>
-        <field name="type">ir.actions.act_window</field>
+        <field name="name">Filières</field>
         <field name="res_model">filiere</field>
         <field name="view_mode">tree,form</field>
     </record>
@@ -34,19 +35,15 @@
         <field name="res_model">fin.service.wizard</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
-        <field name="binding_model_id" ref="model_fin_service_wizard"/>
     </record>
 
-    <!-- <record id="department_report" model="ir.actions.report">
+    <record id="classe_report" model="ir.actions.report">
         <field name="name">Rapport</field>
-
-        <field name="model">department</field>
+        <field name="model">classe</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">hr_managment_test.department_report_template</field>
-
-        <field name="print_report_name">"%s - Employés" % (object.name)</field>
-
-        <field name="binding_model_id" ref="hr_managment_test.model_department"/>
+        <field name="report_name">gestion_scolaire.classe_report_template</field>
+        <field name="print_report_name">object.nom</field>
+        <field name="binding_model_id" ref="gestion_scolaire.model_classe"/>
         <field name="binding_view_types">tree,form</field>
-    </record> -->
+    </record>
 </odoo>

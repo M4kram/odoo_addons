@@ -24,8 +24,10 @@
                         <group>
                             <field name="code"/>
                         </group>
+                        <group>
+                            <field name="filiere_id"/>
+                        </group>
                     </group>
-
                     <notebook>
                         <page string="Les formateurs">
                             <field name="formateurs_ids">
@@ -35,8 +37,6 @@
                                 </tree>
                             </field>
                         </page>
-                    </notebook>
-                    <notebook>
                         <page string="Les étudiants">
                             <field name="etudiants_ids">
                                 <tree create="0" delete="0">
@@ -46,19 +46,14 @@
                             </field>
                         </page>
                     </notebook>
-                    <notebook>
-                        <page string="La filiére">
-                            <field name="filiere_id">
-                                <tree create="0" delete="0">
-                                    <field name="nom" />
-                                    <field name="code" />
-                                </tree>
-                            </field>
-                        </page>
-                    </notebook>
                 </sheet>
             </form>
         </field>
     </record>
 
+    <template id="classe_report_template">
+        <t t-call="web.basic_layout">
+            <h1 t-field="docs.nom"/>
+        </t>
+    </template>
 </odoo>

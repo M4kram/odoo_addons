@@ -1,7 +1,7 @@
 <odoo>   
 
     <record id="fin_service_wizard_form_view" model="ir.ui.view">
-        <field name="name">Assistance fin de service Wizard Form View</field>
+        <field name="name">fin.service.wizard.form.view</field>
         <field name="model">fin.service.wizard</field>
         <field name="arch" type="xml">
             <form>
@@ -9,11 +9,8 @@
                     <group>
                         <group>
                             <field name="formateur_id"/>
-                            <field name="formateur_id"/>
-                            <field name="formateur_id" required="1"/>
                         </group>
                         <group>
-                            <field name="nouveau_formateur_id"/>
                             <field name="nouveau_formateur_id"/>
                         </group>
                     </group>
@@ -24,6 +21,7 @@
                         type="object"
                         string="Remplacer"
                         class="btn-danger"
+                        confirm="Êtes-vous sûr de vouloir remplacer ce formateur?"
                     />
                     <button
                         special="cancel"

@@ -10,7 +10,7 @@
                 <field name="date_naissance"/>
                 <field name="age"/>
                 <field name="classe_id"/>
-                <field name="inscrit" />
+                <field name="inscrit"/>
             </tree>
         </field>
     </record>
@@ -20,21 +20,17 @@
         <field name="model">etudiant</field>
         <field name="arch" type="xml">
             <form>
-                <header>
-                    <field name="inscrit" widget="statusbar" options="{'clickable': '1'}" />
-                </header>
                 <sheet>
                     <group>
-                        <group>
-                            <field name="prenom" string="Prènom *"/>
+                        <group string="Informations personelles">
+                            <field name="prenom" string="Prénom *"/>
                             <field name="nom"/>
                             <field name="date_naissance"/>
-                            <!-- <field name="state" widget="radio"/>-->
-                        </group>
-                        <group>
                             <field name="age"/>
+                        </group>
+                        <group string="Informations scolaires">
                             <field name="classe_id"/>
-                            <!-- <field name="skill_ids" widget="many2many_tags"/> -->
+                            <field name="inscrit"/>
                         </group>
                     </group>
                 </sheet>
@@ -42,4 +38,25 @@
         </field>
     </record>
 
+    <record id="etudiant_search_view" model="ir.ui.view">
+        <field name="name">etudiant.search.view</field>
+        <field name="model">etudiant</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="nom"/>
+                <field name="prenom"/>
+
+                <filter name="filter_est_inscrit" string="Inscrit" domain="[('inscrit', '=', True)]"/>
+                <separator/>
+                <filter name="filter_non_inscrit" string="Non inscrit" domain="[('inscrit', '=', False)]"/>
+                <filter name="filter_gt_20" string="> 20" domain="[('age', '>', 20)]"/>
+                <filter name="filter_lt_20" string="&lt; 20" domain="[('age', '&lt;', 20)]"/>
+
+                <group>
+                    <filter name="group_by_classe_id" string="Classe" context="{'group_by': 'classe_id'}"/>
+                    <filter name="group_by_date_naissance" string="Date de naissance" context="{'group_by': 'date_naissance'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
 </odoo>

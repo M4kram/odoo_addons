@@ -1,32 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>      
-    <!-- Gestion Scolaire Category -->
-    <record id="gestion_scolaire_category" model="ir.module.category">
-        <field name="name">Gestion Scolaire</field>
-    </record>
-    
+
     <!-- Classe Category -->
     <record id="classe_category" model="ir.module.category">
         <field name="name">Gestion Classes</field>
-        <field name="category_id" ref="gestion_scolaire_category"/>
     </record>
 
     <!-- Formateur Category -->
     <record id="formateur_category" model="ir.module.category">
         <field name="name">Gestion Formateurs</field>
-        <field name="category_id" ref="gestion_scolaire_category"/>
     </record>
 
     <!-- Etudiant Category -->
     <record id="etudiant_category" model="ir.module.category">
         <field name="name">Gestion Etudiants</field>
-        <field name="category_id" ref="gestion_scolaire_category"/>
     </record>
     
     <!-- Filière Category -->
     <record id="filiere_category" model="ir.module.category">
         <field name="name">Gestion Filières</field>
-        <field name="category_id" ref="gestion_scolaire_category"/>
     </record>
 
     <!-- Classe Groups -->
@@ -92,4 +84,5 @@
         <field name="perm_create" eval="0" />
         <field name="perm_unlink" eval="0" />
     </record>
+
 </odoo>

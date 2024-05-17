@@ -4,6 +4,7 @@
         Ce module permet de gérer votre établissement
     """,
     "data": [
+        "security/gestion_scolaire.xml",
         "security/ir.model.access.csv",
         "views/etudiant_views.xml",
         "views/formateur_views.xml",

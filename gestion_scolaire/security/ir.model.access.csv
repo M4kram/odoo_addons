@@ -1,7 +1,14 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_classe_user,access.classe.user,model_classe,group_classe_user,1,0,0,0
+access_classe_manager,access.classe.manager,model_classe,group_classe_manager,1,1,1,1
 
-access_etudiant,etudiant,model_etudiant,,1,1,1,1
-access_classe,classe,model_classe,,1,1,1,1
-access_formateur,formateur,model_formateur,,1,1,1,1
-access_filiere,filiere,model_filiere,,1,1,1,1
+access_formateur_user,access.formateur.user,model_formateur,group_formateur_user,1,0,0,0
+access_formateur_manager,access.formateur.manager,model_formateur,group_formateur_manager,1,1,1,1
+
+access_filiere_user,access.filiere.user,model_filiere,group_filiere_user,1,0,0,0
+access_filiere_manager,access.filiere.manager,model_filiere,group_filiere_manager,1,1,1,1
+
+access_etudiant_user,access.etudiant.user,model_etudiant,group_etudiant_user,1,0,0,0
+access_etudiant_manager,access.etudiant.manager,model_etudiant,group_etudiant_manager,1,1,1,1
+
 access_fin_service,fin.service.wizard,model_fin_service_wizard,,1,1,1,1
